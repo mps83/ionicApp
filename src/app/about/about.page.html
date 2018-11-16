@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Weather Report</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scroll="false">
+  <!-- <ion-img  src="../../assets/images/weather.jpg"></ion-img> -->
+  <ion-card class="background" style="height:100%;" scroll="false">
+    <ion-card-header>
+      <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+      <ion-card-title>{{city}} ,IN</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-text color="dark">
+        <h1> {{temp | number : '1.0-0'}} &#8451;</h1>
+      </ion-text>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Humidity
+          </ion-col>
+          <ion-col>
+            Pressure
+          </ion-col>
+          <ion-col>
+            Wind Speed
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            {{humidity}} %
+          </ion-col>
+          <ion-col>
+            {{pressure}} hPa
+          </ion-col>
+          <ion-col>
+            {{windSpeed}} m/s
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+    <ion-grid class="search">
+      <ion-row>
+        <ion-col size="9">
+            <ion-searchbar [(ngModel)]="selectedCity" placeholder="Search City"></ion-searchbar>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button  color="primary" (click)="searchCity()">Search</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+
+</ion-content>

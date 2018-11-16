@@ -1,0 +1,48 @@
+ion-title {
+    text-align: center;
+}
+
+ion-content {
+    text-align: center;
+}
+
+ion-card-title {
+    font-size: 30px;
+    color: white;
+}
+
+ion-card {
+    border-radius: 0;
+
+}
+
+ion-card.background {
+    background: url('../../assets/images/club.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: auto;
+    height: 100%;
+    z-index: 2;
+}
+
+ion-text {
+    color: white;
+}
+
+ion-text h1 {
+    font-size: 80px;
+}
+
+ion-button {
+    margin-top: 8px;
+}
+
+ion-grid {
+    color: white;
+    margin-top: 50px;
+}
+
+ion-grid.search {
+    margin-top: 80%;
+}
+
