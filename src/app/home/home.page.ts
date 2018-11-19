@@ -13,27 +13,19 @@ export class HomePage implements OnInit {
   constructor(private apiService: ApiService , private router: Router) {}
 
 getNews() {
-  return this.apiService.getData(`top-headlines?language=en&pageSize=5&page=${this.page}&country=in&`).subscribe(res => {
-    // tslint:disable-next-line:no-unused-expression
+  return this.apiService.getData().subscribe(res => {
     this.newsData.push(res);
-    this.newsData = this.newsData[0].articles;
+    this.newsData = this.newsData[0].posts;
+    console.log(this.newsData);
   });
 }
 openSingleNews(news) {
  this.apiService.singleNews = news;
  this.router.navigate(['./singleNews']);
 }
-loadData(event) {
-  this.page++;
-  this.apiService.getData(`top-headlines?language=en&pageSize=5&page=${this.page}&country=in&`).subscribe(res => {
-  for (const article of res['articles']) {
-    this.newsData.push(article);
-  }
-  console.log(this.newsData);
-  event.target.complete();
-  });
-}
+
 ngOnInit() {
   this.getNews();
 }
 }
+
