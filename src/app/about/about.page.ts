@@ -16,6 +16,9 @@ export class AboutPage implements OnInit {
   pressure: any;
   humidity: any;
   selectedCity: any;
+  weather: any;
+  selectedImage: any;
+  weaName: any ;
   constructor(private apiService: ApiService, public loadingCtrl: LoadingController) {
   }
   weatherUpdate(cityName) {
@@ -27,6 +30,18 @@ export class AboutPage implements OnInit {
       this.windSpeed = this.wind.speed;
       this.pressure = this.weatherData.pressure;
       this.humidity = this.weatherData.humidity;
+      this.weather = data['weather'];
+      if (this.weather['0'].main === 'Haze') {
+        this.weaName = 'partly-sunny';
+      } else if (this.weather['0'].main === 'Smoke') {
+        this.weaName = 'cloudy';
+      } else if (this.weather['0'].main === 'Rain') {
+        this.weaName = 'rainy';
+      } else if (this.weather['0'].main === 'Sunny') {
+        this.weaName = 'sunny';
+      } else if (this.weather['0'].main === 'Clear') {
+        this.weaName = 'sunny';
+      }
       console.log(data['main'], data['name'] , data);
     });
   }

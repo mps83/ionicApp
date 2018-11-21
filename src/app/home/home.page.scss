@@ -3,9 +3,18 @@ ion-title {
     margin-top: 8px;
 }
 ion-card {
-    margin:0;
     border-radius: 0;
 }
 // ion-card-title {
 //     font-size: 20px;
 // }
+// 
+ion-row {
+    border-bottom: 1px solid lightgrey;
+}
+p {
+    font-size: 12px;
+}
+p.heading {
+    font-weight: 700;
+}

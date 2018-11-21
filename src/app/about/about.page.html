@@ -40,12 +40,21 @@
             {{windSpeed}} m/s
           </ion-col>
         </ion-row>
+            <ion-row style="margin-top: 20px;margin-bottom: 20px">
+              <ion-col></ion-col>
+              <ion-col>
+                <!-- <ion-img  src="{{selectedImage}}"></ion-img> -->
+                <ion-icon style="font-size: 120px" name="{{weaName}}"></ion-icon>
+              </ion-col>
+              <ion-col></ion-col>
+            </ion-row>
       </ion-grid>
     </ion-card-content>
     <ion-item>
       <ion-input [(ngModel)]="selectedCity" type="text" placeholder="Search City"></ion-input>
     </ion-item>
     <ion-button  size="large" color="primary" (click)="searchCity()">Search</ion-button>
+    
   </ion-card>
 
 

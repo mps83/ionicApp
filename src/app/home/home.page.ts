@@ -13,6 +13,7 @@ export class HomePage implements OnInit {
   constructor(private apiService: ApiService , private router: Router) {}
 
 getNews() {
+  this.newsData = [];
   return this.apiService.getData().subscribe(res => {
     this.newsData.push(res);
     this.newsData = this.newsData[0].posts;
@@ -22,6 +23,14 @@ getNews() {
 openSingleNews(news) {
  this.apiService.singleNews = news;
  this.router.navigate(['./singleNews']);
+}
+doRefresh(event) {
+  console.log('Begin async operation');
+this.getNews();
+  setTimeout(() => {
+    console.log('Async operation has ended');
+    event.target.complete();
+  }, 2000);
 }
 
 ngOnInit() {

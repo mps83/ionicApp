@@ -1,16 +1,25 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Top News</ion-title>
+    <ion-title>Headlines</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-  <ion-card *ngFor="let n of newsData" (click)="openSingleNews(n)">
-    <ion-img *ngIf="n?.urlToImage !== null" [src]="n.thread.main_image"></ion-img>
-    <ion-card-header>
-      <ion-card-title>{{n.title}}</ion-card-title>
-      <ion-card-subtitle>{{n.published}}</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
+<ion-content class="background">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-grid>
+    <ion-row *ngFor="let n of newsData" (click)="openSingleNews(n)">
+      <ion-col size="4">
+        <ion-img *ngIf="n.thread.main_image !== null" [src]="n.thread.main_image"></ion-img>
+      </ion-col>
+      <ion-col size="8">
+        <ion-text>
+          <p class="heading">{{n.title}}</p>
+          <p>{{n.author}}</p>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <ion-infinite-scroll (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading…">
     </ion-infinite-scroll-content>
